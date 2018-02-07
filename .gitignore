@@ -57,3 +57,18 @@ typings/
 # dotenv environment variables file
 .env
 
+# Jetbrains projects
+.idea
+
+# Visual Studio NodeJS projects
+.njsproj
+
+# Visual Studio Code projects
+.vscode
+
+# Localtest files
+test.js
+
+
+
+
