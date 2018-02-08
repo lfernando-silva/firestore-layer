@@ -6,7 +6,7 @@ const serviceAccountKey = require('./configs/firestore-test-194518-firebase-admi
 const lib = require('./lib/index')(serviceAccountKey)
 
 return lib
-    .query('findById',{collection, id}, {rawData: false})
+    .query('findById',{collection}, {rawData: false})
     .then(result => {
         return console.log(result)
     }).catch(err => {
