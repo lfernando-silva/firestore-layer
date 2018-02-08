@@ -57,7 +57,6 @@ lib.query('upsert', {...doc, id })
 
 lib.query('remove', {...doc, id })
 //Executes db.collection(collection).doc(id).delete()
-
 ```
 
 ## options
@@ -66,7 +65,8 @@ lib.query('remove', {...doc, id })
 - returning (BOOLEAN) => Return the created/updated doc. Default is FALSE.
 - merge (BOOLEAN) => Perform a pontual update, and DONT replace the original document. Equivalent to update with $set at mongoDb. Default is FALSE.
 - orderBy (ARRAY OF OBJECTS) => Retrieve the result ordered by criteria. Such criteria must be an object with format {field,order}. Default is the index criteria order.
-- limit (NUMBER) => Retrieve a set of documents with lenght of limit passed. Default is total number of documents that match the criteria.
+- limit (NUMBER) => Returns a set of documents with lenght of limit passed. Default is total number of documents that match the criteria.
+- all (BOOLEAN) => Returns all documents at collection
 
 ## Notes
 - To perform find queries with sort, [is necessary to create an index for EACH document field at firestore](https://firebase.google.com/docs/firestore/query-data/indexing). In this case, we CAN NOT change the document structure (make an schema).

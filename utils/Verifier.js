@@ -10,7 +10,7 @@ const obtainRequiredFields = (fnName) => {
     return fnRequiredFields[fnName]
 }
 
-module.exports = (fnName, params) => {
+module.exports = (fnName, params, options) => {
     const commaRegex = /,/g
     const requiredFnNameFields = obtainRequiredFields(fnName)
 
@@ -29,7 +29,7 @@ module.exports = (fnName, params) => {
         ? params.filter(param => Checker.paramsHasFields(param, requiredFnNameFields.split(commaRegex))).length === params.length
         : Checker.paramsHasFields(params, requiredFnNameFields.split(commaRegex))
 
-    if(!paramsHasSpecificRequiredFields){
+    if(!paramsHasSpecificRequiredFields && options && !options.all){
         throw new Error(`This operation requires the following fields ${isArray && 'for all criterias'}: ${ requiredFnNameFields }.`)
     }
 }
