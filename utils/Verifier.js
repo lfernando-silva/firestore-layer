@@ -1,6 +1,4 @@
-const _ = require('lodash')
-
-const paramsHasFields = (params, fields) => _.intersection(Object.keys(params),fields).length > 0
+const Checker = require('./Checker')
 
 const obtainRequiredFields = (fnName) => {
     const fnRequiredFields = {
@@ -20,9 +18,18 @@ module.exports = (fnName, params) => {
         return true
     }
 
-    const paramsHasSpecificRequiredFields = requiredFnNameFields && paramsHasFields(params, requiredFnNameFields.split(commaRegex))
+    const isArray = Checker.isArray(params)
+    const isEmpty = Checker.isEmpty(params)
+
+    if(isArray && isEmpty){
+        throw new Error('An empty criteria array is invalid')
+    }
+
+    const paramsHasSpecificRequiredFields = requiredFnNameFields && isArray
+        ? params.filter(param => Checker.paramsHasFields(param, requiredFnNameFields.split(commaRegex))).length === params.length
+        : Checker.paramsHasFields(params, requiredFnNameFields.split(commaRegex))
 
     if(!paramsHasSpecificRequiredFields){
-        throw new Error(`This operation requires the following fields: ${ requiredFnNameFields }.`)
+        throw new Error(`This operation requires the following fields ${isArray && 'for all criterias'}: ${ requiredFnNameFields }.`)
     }
 }
