@@ -16,7 +16,7 @@ module.exports = (fnName, params) => {
         throw new Error(`This operation requires the name of the function. See docs for details`)
     }
 
-    if(!params || typeof parmas !== 'object'){
+    if(!params || typeof params !== 'object'){
         throw new Error(`This operation requires a params object for function ${fnName}. See docs for details`)
     }
 
