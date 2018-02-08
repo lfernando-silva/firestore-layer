@@ -49,21 +49,28 @@ Each query requires its owm params
 lib.query('findById', {id : 'document id at firestore'})
 //Executes db.collection(collection).doc(id).get()
 
-lib.query('find', {
-    field: 'fieldName', 
-    matchCriteria: 'match criteria (=, >, ...',
-    matchValue: 'value of match'
-    }
-)
+lib.query('find', {criteria: [{field,matchCriteria,matchValue}]})
 //Executes db.collection(collection).where(fieldName, matchCriteria, matchValue).get()
 
-lib.query('upsert', {...doc, id (optional)})
+lib.query('upsert', {...doc, id })
 //Executes db.collection(collection).doc() .set(doc) or .add()
+
+lib.query('remove', {...doc, id })
+//Executes db.collection(collection).doc(id).delete()
 
 ```
 
 ## options
 
-- rawData (BOOLEAN) => Retrieve raw response from firebase on search queryies. Default is false, that returns just doc.data()
-- returning (BOOLEAN) => Return the created/updated doc.
+- rawData (BOOLEAN) => Retrieve raw response from firebase on search queryies. Default is FALSE (returns just doc.data())
+- returning (BOOLEAN) => Return the created/updated doc. Default is FALSE.
+- merge (BOOLEAN) => Perform a pontual update, and DONT replace the original document. Equivalent to update with $set at mongoDb. Default is FALSE.
+- orderBy (ARRAY OF OBJECTS) => Retrieve the result ordered by criteria. Such criteria must be an object with format {field,order}. Default is the index criteria order.
+- limit (NUMBER) => Retrieve a set of documents with lenght of limit passed. Default is total number of documents that match the criteria.
+
+## Notes
+- To perform find queries with sort, [is necessary to create an index for EACH document field at firestore](https://firebase.google.com/docs/firestore/query-data/indexing). In this case, we CAN NOT change the document structure (make an schema).
+
+## License
+MIT
 
