@@ -70,7 +70,7 @@ typings/
 test.js
 
 # exclude everything
-config/*
+/config
 
 
 
