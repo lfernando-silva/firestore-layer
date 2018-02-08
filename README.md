@@ -40,6 +40,7 @@ Params:
 It follow the mongoose convetions. The following functions are available:
 - findById
 - find
+- upsert
 
 ## params
 Each query requires its owm params
@@ -55,11 +56,16 @@ lib.query('find', {
     matchValue: 'value of match'
     }
 )
-
 //Executes db.collection(collection).where(fieldName, matchCriteria, matchValue).get()
+
+lib.query('upsert', {...doc, id (optional)})
+//Executes db.collection(collection).doc() .set(doc) or .add()
+
+
 ```
 
 ## options
 
 - rawData (BOOLEAN) => Retrieve raw response from firebase on search queryies. Default is false, that returns just doc.data()
+- returning (BOOLEAN) => Return the created/updated doc.
 

@@ -6,7 +6,8 @@ const obtainRequiredFields = (fnName) => {
     const fnRequiredFields = {
         'all': 'collection',
         'findById': 'id',
-        'find': 'field,matchCriteria,matchValue'
+        'find': 'field,matchCriteria,matchValue',
+        'upsert': 'none'
     }
     return fnRequiredFields[fnName]
 }
@@ -23,6 +24,11 @@ module.exports = (fnName, params) => {
     const commaRegex = /,/g
     const requiredAllFields = obtainRequiredFields('all')
     const requiredFnNameFields = obtainRequiredFields(fnName)
+
+    if(requiredFnNameFields === 'none'){
+        return true
+    }
+
     const paramsHasRequiredAllFields = requiredAllFields && paramsHasFields(params, requiredAllFields.split(commaRegex))
     const paramsHasSpecificRequiredFields = requiredFnNameFields && paramsHasFields(params, requiredFnNameFields.split(commaRegex))
 
