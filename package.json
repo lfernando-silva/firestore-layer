@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^5.0.0",
-    "firebase-admin": "^5.8.2"
+    "firebase-admin": "^5.8.2",
+    "lodash": "^4.17.5"
   }
 }
