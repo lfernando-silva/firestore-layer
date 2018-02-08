@@ -69,6 +69,8 @@ typings/
 # Local test files
 test.js
 
+/config
+
 
 
 
