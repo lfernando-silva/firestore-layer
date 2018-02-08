@@ -69,7 +69,12 @@ typings/
 # Local test files
 test.js
 
-/config
+# exclude everything
+somefolder/*
+
+# exception to the rule
+!somefolder/.gitkeep
+
 
 
 
