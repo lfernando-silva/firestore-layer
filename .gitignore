@@ -70,9 +70,10 @@ typings/
 test.js
 
 # exclude everything
-/config
+/configs/*
 
-
+# exception to the rule
+!configs/.gitkeep
 
 
 
