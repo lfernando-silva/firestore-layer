@@ -34,7 +34,6 @@ Params:
 * params (Object - REQUIRED) => The query params for each function (see below)
 * options (Object - OPTIONAL) => Optional params to each query (see below)
 
-
 ## functionName  
 
 It follow the mongoose convetions. The following functions are available:
@@ -60,7 +59,6 @@ lib.query('find', {
 
 lib.query('upsert', {...doc, id (optional)})
 //Executes db.collection(collection).doc() .set(doc) or .add()
-
 
 ```
 
