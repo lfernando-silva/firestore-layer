@@ -6,7 +6,8 @@ const obtainRequiredFields = (fnName) => {
     const fnRequiredFields = {
         'findById': 'id',
         'find': 'field,matchCriteria,matchValue',
-        'upsert': 'none'
+        'upsert': 'none',
+        'remove': 'id',
     }
     return fnRequiredFields[fnName]
 }
