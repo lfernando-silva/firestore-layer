@@ -1,4 +1,4 @@
-# firestore-datalayer
+# firestore-layer
 
 Nodejs firestore interface to make easily requests firestore.
 
@@ -11,14 +11,14 @@ Nodejs firestore interface to make easily requests firestore.
 # Installing
 
 ```bash
-$ npm install --save firestore-datalayer
+$ npm install --save firestore-layer
 ```
 
 # Requiring
 - Pass the Service Account Key JSON file into the lib constructor
 
 ```javascript
-    const FirestoreDatalayer = require('firestore-datalayer')
+    const FirestoreDatalayer = require('firestore-layer')
     const serviceAccountKeyFile = require('path-to/serviceAccountKeyFile')
     
     const datalayer = FirestoreDatalayer(serviceAccountKeyFile) 
