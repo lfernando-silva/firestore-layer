@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "./node_modules/.bin/babel lib --presets @babel/preset-env --out-dir dist"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,9 @@
     "lodash": "^4.17.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
     "dotenv": "^5.0.0",
     "jest": "^22.2.1"
   }
