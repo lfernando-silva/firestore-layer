@@ -3,6 +3,7 @@
   "version": "0.1.6",
   "description": "",
   "main": "index.js",
+  "readmeFilename": "README.md",
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/babel lib --presets @babel/preset-env --out-dir dist"
