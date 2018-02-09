@@ -1,5 +1,6 @@
 # firestore-datalayer
-Sample nodejs firestore layer as a data a layer
+
+Nodejs firestore interface to make easily requests firestore.
 
 # Pre-Requirements
 
@@ -7,14 +8,20 @@ Sample nodejs firestore layer as a data a layer
 - Setup [Firebase admin](https://firebase.google.com/docs/admin/setup#add_firebase_to_your_app)
 - Service Account Key JSON file
 
+# Installing
+
+```bash
+$ npm install --save firestore-datalayer
+```
+
 # Requiring
-- Pass the Service Account Key JSON file into lib constructor
+- Pass the Service Account Key JSON file into the lib constructor
 
 ```javascript
-    const lib = require('path-to/lib')
+    const FirestoreDatalayer = require('firestore-datalayer')
     const serviceAccountKeyFile = require('path-to/serviceAccountKeyFile')
     
-    const instance = lib(serviceAccountKeyFile) 
+    const datalayer = FirestoreDatalayer(serviceAccountKeyFile) 
     
     //queries can be built now   
 ```
@@ -22,8 +29,7 @@ Sample nodejs firestore layer as a data a layer
 # Querying
 
 ```javascript
-.query(functionName, params, [options])
-
+datalayer.query(functionName, params, [options])
 ```
 
 - Returns a promise with the result or error.
@@ -36,7 +42,7 @@ Params:
 
 ## functionName  
 
-It follow the mongoose convetions. The following functions are available:
+The following functions are available:
 - findById
 - find
 - upsert
@@ -66,12 +72,27 @@ lib.query('remove', {...doc, id })
 - returning (BOOLEAN) => Return the created/updated doc. Default is FALSE.
 - merge (BOOLEAN) => Perform a pontual update, and DONT replace the original document. Equivalent to update with $set at mongoDb. Default is FALSE.
 - orderBy (ARRAY OF OBJECTS) => Retrieve the result ordered by criteria. Such criteria must be an object with format {field,order}. Default is the index criteria order.
-- limit (NUMBER) => Returns a set of documents with lenght of limit passed. Default is total number of documents that match the criteria.
+- limit (NUMBER) => Returns a set of documents with lenght as the limit passed. Default is total number of documents that match the criteria.
 - all (BOOLEAN) => Returns all documents at collection
 
-## Notes
+# Notes
+- Firestore is in Beta version. This library may be unstable.
+- This module is transpiled using [Babel](https://babeljs.io) to NodeJS 6.11 (to work at firebase cloud functions)
 - To perform find queries with sort, [is necessary to create an index for EACH document field at firestore](https://firebase.google.com/docs/firestore/query-data/indexing). In this case, we CAN NOT change the document structure (make an schema).
 
-## License
+# Tests (not all covered)
+```bash
+$ npm test
+```
+
+# Todos
+- Realtime updates
+- Follow the firestore upgrades
+
+# Contributions
+- Is welcome.
+- For now, its just make your PR with a [Jest](https://facebook.github.io/jest/) test. 
+
+# License
 MIT
 
