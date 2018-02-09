@@ -17,6 +17,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0-beta.39",
     "bluebird": "^3.5.1",
     "firebase-admin": "^5.8.2",
     "lodash": "^4.17.5"
