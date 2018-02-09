@@ -40,6 +40,7 @@ It follow the mongoose convetions. The following functions are available:
 - findById
 - find
 - upsert
+- remove
 
 ## params
 Each query requires its owm params
