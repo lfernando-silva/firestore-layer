@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var Database = require('./Database');
 
-var verify = require('../utils/BaseQueryVerifier');
+var verify = require('./utils/BaseQueryVerifier');
 
 var DatabaseActions = require('./actions');
 
