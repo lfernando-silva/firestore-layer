@@ -53,16 +53,16 @@ Each query requires its owm params
 
 ```javascript
 
-lib.query('findById', {id : 'document id at firestore'})
+lib.query('findById', {collection, id : 'document id at firestore'})
 //Executes db.collection(collection).doc(id).get()
 
-lib.query('find', {criteria: [{field,matchCriteria,matchValue}]})
+lib.query('find', {collection, criteria: [{field,matchCriteria,matchValue}]})
 //Executes db.collection(collection).where(fieldName, matchCriteria, matchValue).get()
 
-lib.query('upsert', {...doc, id })
+lib.query('upsert', {collection, ...doc, id })
 //Executes db.collection(collection).doc() .set(doc) or .add()
 
-lib.query('remove', {...doc, id })
+lib.query('remove', {collection, ...doc, id })
 //Executes db.collection(collection).doc(id).delete()
 ```
 
