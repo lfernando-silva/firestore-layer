@@ -26,10 +26,32 @@ function () {
             verify('upsert', params);
             id = params.id;
             delete params.id;
-            result = id ? ref.doc(id).set(params, options) : ref.add(params, options);
+
+            if (!id) {
+              _context.next = 9;
+              break;
+            }
+
+            _context.next = 6;
+            return ref.doc(id).set(params, options);
+
+          case 6:
+            _context.t0 = _context.sent;
+            _context.next = 12;
+            break;
+
+          case 9:
+            _context.next = 11;
+            return ref.add(params, options);
+
+          case 11:
+            _context.t0 = _context.sent;
+
+          case 12:
+            result = _context.t0;
             return _context.abrupt("return", options && options.returning ? findByStrategy(result.id || id, params, options, ref) : result);
 
-          case 5:
+          case 14:
           case "end":
             return _context.stop();
         }
