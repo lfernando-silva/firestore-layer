@@ -24,7 +24,7 @@
     "@babel/polyfill": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
     "bluebird": "^3.5.1",
-    "firebase-admin": "^5.8.2",
+    "firebase-admin": "^11.4.1",
     "lodash": "^4.17.5"
   },
   "devDependencies": {
